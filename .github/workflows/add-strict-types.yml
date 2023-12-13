@@ -28,9 +28,9 @@ jobs:
           if [ -n "$NEW_PHP_FILES" ]; then
             for file in $NEW_PHP_FILES; do
               if grep -q '^<?php' "$file"; then
-                sed -i '/^<?php/a declare( strict_types=1 );' "$file"
+                sed -i '/^<?php/a \tdeclare( strict_types=1 );' "$file"
               else
-                sed -i '1s|^|<?php declare( strict_types=1 );\n|' "$file"
+                sed -i '1s|^|<?php\ndeclare( strict_types=1 );\n|' "$file"
               fi
             done
             git add $NEW_PHP_FILES
