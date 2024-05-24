@@ -24,7 +24,7 @@ jobs:
       - name: Version bump
         run: |
           if [ ${{ github.event.inputs.theme-slug }} == 'all' ]; then
-            npm run version-bump
+            npm run deploy:version-bump
           else
             # Check if theme exists
             theme_exists=false
