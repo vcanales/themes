@@ -12,6 +12,10 @@ Ueno is suitable for any kind of blog or website. It has an opinionated default 
 
 == Changelog ==
 
+= 1.0.7 =
+* add change to theme
+* add another theme change
+
 = 1.0.6 =
 * Update screenshot.png
 
