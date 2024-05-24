@@ -12,12 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        id: checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           ref: trunk
-      - run: |
+      
+      - name: Create branch
+        id: create-branch
+        run: |
           BRANCH_NAME="${{ github.workflow }}-${{ github.run_number }}"
           git checkout -b $BRANCH_NAME
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_OUTPUT
@@ -58,7 +60,7 @@ jobs:
 
             npm run deploy:version-bump -- ${{ github.event.inputs.theme-slug }}
           fi
-          
+
       - name: Check if there are changes
         id: check-changes
         run: |
@@ -75,7 +77,7 @@ jobs:
             git config user.email 'github-actions[bot]@users.noreply.github.com'
             git add .
             git commit -m "Version bump & changelog update" --no-verify
-            git push --set-upstream origin ${{ steps.checkout.outputs.BRANCH_NAME }}
+            git push --set-upstream origin ${{ steps.create-branch.outputs.BRANCH_NAME }}
 
       - name: Create Pull Request
         if: steps.check-changes.outputs.HAS_CHANGES == 'true'
@@ -85,7 +87,7 @@ jobs:
           commit-message: 'Version bump'
           title: 'Version bump'
           body: 'Version bump'
-          branch: ${{ steps.checkout.outputs.BRANCH_NAME }}
+          branch: ${{ steps.create-branch.outputs.BRANCH_NAME }}
           base: trunk
           labels: automate
           draft: false
