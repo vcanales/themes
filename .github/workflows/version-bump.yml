@@ -47,5 +47,5 @@ jobs:
               exit 1
             fi
 
-            npm run version-bump -- ${{ github.event.inputs.theme-slug }}
+            npm run deploy:version-bump -- ${{ github.event.inputs.theme-slug }}
           fi
