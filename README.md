@@ -50,3 +50,4 @@ The code in this repository mirrors the code needed for the theme to function co
 - View the generated zip in the respective theme's sub-directory
 
 Note that this script rebuilds the theme to strip it of .com-specific functionality, and discards any changes via git after doing so. _Make sure you have committed any working changes before running this script._
+test
