@@ -53,3 +53,4 @@ Note that this script rebuilds the theme to strip it of .com-specific functional
 test
 test
 test
+test
