@@ -60,3 +60,4 @@ endif;
 
 add_action( 'wp_enqueue_scripts', 'ueno_styles' );
 <?php echo "hi"; ?>
+<?php echo "hi"; ?>
