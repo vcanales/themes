@@ -16,7 +16,7 @@ jobs:
                   ref: ${{ github.event.pull_request.head.sha }}
 
             - name: Preview Theme Changes
-              uses: vcanales/action-wp-playground-pr-preview@1f21b56
+              uses: vcanales/action-wp-playground-pr-preview@1f21b568b64c10eaa971e5504a76c65e84ba4e05
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   ref: ${{ github.event.pull_request.head.sha }}
