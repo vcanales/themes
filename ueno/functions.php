@@ -59,3 +59,4 @@ if ( ! function_exists( 'ueno_styles' ) ) :
 endif;
 
 add_action( 'wp_enqueue_scripts', 'ueno_styles' );
+<?php echo "hi"; ?>
